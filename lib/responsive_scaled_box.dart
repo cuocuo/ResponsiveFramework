@@ -6,11 +6,13 @@ class ResponsiveScaledBox extends StatelessWidget {
   final double? width;
   final Widget child;
   final bool autoCalculateMediaQueryData;
+  final double? textScaleFactor;
 
   const ResponsiveScaledBox(
       {Key? key,
       required this.width,
       required this.child,
+      this.textScaleFactor,
       this.autoCalculateMediaQueryData = true})
       : super(key: key);
 
@@ -57,7 +59,8 @@ class ResponsiveScaledBox extends StatelessWidget {
                   size: Size(scaledWidth, scaledHeight),
                   viewInsets: scaledViewInsets,
                   viewPadding: scaledViewPadding,
-                  padding: scaledPadding),
+                  padding: scaledPadding,
+                  textScaleFactor: textScaleFactor),
               child: childHolder,
             );
           }
