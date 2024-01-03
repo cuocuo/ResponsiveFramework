@@ -177,7 +177,7 @@ class ResponsiveBreakpointsState extends State<ResponsiveBreakpoints>
   /// Get enabled breakpoints based on [orientation] and [platform].
   List<Breakpoint> getActiveBreakpoints() {
     // If the device is landscape enabled and the current orientation is landscape, use landscape breakpoints.
-    if (isLandscape) {
+    if (orientation == Orientation.landscape) {
       return widget.breakpointsLandscape ?? widget.breakpoints;
     }
     return widget.breakpoints;
