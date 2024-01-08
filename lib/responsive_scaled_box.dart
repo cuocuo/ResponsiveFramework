@@ -30,18 +30,20 @@ class ResponsiveScaledBox extends StatelessWidget {
           bool overrideMediaQueryData = autoCalculateMediaQueryData &&
               (mediaQueryData.size ==
                   Size(constraints.maxWidth, constraints.maxHeight));
-
+          debugPrint('responsive-屏幕大小：${Size(scaledWidth, scaledHeight).toString()}');
           EdgeInsets scaledViewInsets = getScaledViewInsets(
               mediaQueryData: mediaQueryData,
               screenSize: mediaQueryData.size,
               scaledSize: Size(scaledWidth, scaledHeight));
+          debugPrint('responsive-scaledViewInsets：${scaledViewInsets.toString()}');
           EdgeInsets scaledViewPadding = getScaledViewPadding(
               mediaQueryData: mediaQueryData,
               screenSize: mediaQueryData.size,
               scaledSize: Size(scaledWidth, scaledHeight));
+          debugPrint('responsive-scaledViewPadding${scaledViewPadding.toString()}');
           EdgeInsets scaledPadding = getScaledPadding(
               padding: scaledViewPadding, insets: scaledViewInsets);
-
+          debugPrint('responsive-scaledPadding${scaledPadding.toString()}');
           Widget childHolder = FittedBox(
             fit: BoxFit.fitWidth,
             alignment: Alignment.topCenter,
@@ -57,9 +59,9 @@ class ResponsiveScaledBox extends StatelessWidget {
             return MediaQuery(
               data: mediaQueryData.copyWith(
                   size: Size(scaledWidth, scaledHeight),
-                  viewInsets: scaledViewInsets,
-                  viewPadding: scaledViewPadding,
-                  padding: scaledPadding,
+                  // viewInsets: scaledViewInsets,
+                  // viewPadding: scaledViewPadding,
+                  // padding: scaledPadding,
                   textScaleFactor: textScaleFactor),
               child: childHolder,
             );
